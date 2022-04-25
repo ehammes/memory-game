@@ -15,10 +15,13 @@
 
 A simple matching game where players click on 'cards' trying to match the images on back side of them.
 
-
 #### What problem or pain point does it solve?
 
 This game will provide memory improvement in the form of an entertaining game.
+
+#### User Stories
+
+[Available On GitHub Projects](https://github.com/CodeFellows-Code-201-Group-Project/memory-game/projects/1)
 
 #### Minimum Viable Product (MVP) definition
 
