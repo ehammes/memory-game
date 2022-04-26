@@ -4,11 +4,10 @@
 
 // ********************** Global Variables ************************************
 
+let parseduserName = 'New User';
 
-let userNameArray = [];
 
-
-let userName = ''; // pulled from local storage
+// let userName = ''; // pulled from local storage
 
 
 
@@ -21,6 +20,10 @@ let userNameDiv = document.getElementById('username');
 // ********************** Helpers, Executables ********************************
 
 // check local storage for username
+let retrieveduserName = localStorage.getItem(userName);
+parseduserName = JSON.parse(retrieveduserName);
+userNameDiv.textContent = parseduserName;
+
 
 
 // ********************** Event Handlers **************************************
@@ -29,24 +32,22 @@ function userNameSubmission(event) {
 
   event.preventDefault();
 
-  let userName = event.target.username.value;
-  userNameDiv.textContent = userName;
+
+
+  let parseduserName = event.target.username.value;
+  userNameDiv.textContent = parseduserName;
+  console.log('userName', parseduserName);
+
+  // let stringifiedUserName = JSON.stringify(userName);
+  localStorage.setItem('userName', parseduserName);
 }
 // Form submission
 // username input saved to local storage
 
-let stringifiedUserName = JSON.stringify(userName);
-localStorage.setItem('userName', userName);
-// Creation of object constructor begins
 
-function Username(userName, highscore) {
-  this.username = userName;
-  this.highscore = highscore;
 
-  userNameArray.push(this);
-}
 
-console.log('userName', userName);
+
 
 
 // {userName: event.target.username.value}
@@ -54,7 +55,7 @@ console.log('userName', userName);
 
 // ********************** Event Listeners ****************//
 
-userForm.addEventListener('click', userNameSubmission);
+userForm.addEventListener('submit', userNameSubmission);
 
 
 
