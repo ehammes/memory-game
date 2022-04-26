@@ -39,16 +39,12 @@ const gameContainer = document.getElementById('game');
 // countdown timer
 // random image selector, two instances, not repeated
 
-placeCards();
-for(let i = 1; i <= MATCHESREQUIRED; i++) {
-  let randomImageName = getRandomImage();
-  new CARD(randomImageName);
-  new CARD(randomImageName);
-}
+placeCardDivs();
 fillCards();
+fillCardDivs();
 
 // places blank divs on page and assigns corresponding id value
-function placeCards() {
+function placeCardDivs() {
   for(let i = 0; i < MATCHESREQUIRED * 2; i++) {
     let currCard = document.createElement('div');
     gameContainer.appendChild(currCard);
@@ -56,14 +52,23 @@ function placeCards() {
   }
 }
 
-// Returns a string randomly picked from imgNameArray representing the file name of the image
-function getRandomImage() {
-  let imageIndex = Math.floor(Math.random() * (imgNameArray.length + 1));
+// Picks a random image and fill two Card Objects with that image
+function fillCards() {
   let pickedIndices = [];
-  pickedIndices.push(imageIndex);
-  while(pickedIndices.includes(imageIndex)) {
-    imageIndex = Math.floor(Math.random() * (imgNameArray.length + 1));
+  for(let i = 1; i <= MATCHESREQUIRED; i++) {
+    let randomImageName = getRandomImage(pickedIndices);
+    new CARD(randomImageName);
+    new CARD(randomImageName);
   }
+}
+
+// Returns a string randomly picked from imgNameArray representing the file name of the image
+function getRandomImage(pickedIndices) {
+  let imageIndex = Math.floor(Math.random() * (imgNameArray.length));
+  while(pickedIndices.includes(imageIndex)) {
+    imageIndex = Math.floor(Math.random() * (imgNameArray.length));
+  }
+  pickedIndices.push(imageIndex);
   return imgNameArray[imageIndex];
 }
 
@@ -75,12 +80,12 @@ function CARD(randomImageName) {
 }
 
 
-function fillCards() {
+function fillCardDivs() {
   let pickedIndices = [];
   for(let i = 0; i < cardArray.length; i++) {
-    let randomDivIndex = Math.floor(Math.random() * (cardArray.length + 1));
+    let randomDivIndex = Math.floor(Math.random() * (cardArray.length));
     while(pickedIndices.includes(randomDivIndex)) {
-      randomDivIndex = Math.floor(Math.random() * (cardArray.length + 1));
+      randomDivIndex = Math.floor(Math.random() * (cardArray.length));
     }
     pickedIndices.push(randomDivIndex);
     cardArray[i].domAddress = document.getElementById(`card-${randomDivIndex}`);
