@@ -7,7 +7,8 @@ const STARTING_TIME = 60;
 const cardArray = [];
 const imgNameArray = fillImgNameArray();
 let timeRemaining = STARTING_TIME;
-let userName = 'default_user';
+// let userName = 'default_user';
+
 
 // card1 always in postiion 1, etc
 
@@ -16,31 +17,40 @@ let userName = 'default_user';
 // id = game
 // create divs for game cards
 // append cards to section
+const gameContainer = document.getElementById('game');
+const startButton = document.getElementById('start-game');
+const resetButton = document.getElementById('reset-game');
+const timer = document.getElementById('timer');
 
 
 // ********************** Constructor *****************************************
 
-// construct game with game card divs
-// select random image, save as property of object
-const gameContainer = document.getElementById('game');
-// dom reference card element
-// append to game card array
-
-// getting two images
+// Constructor, fills img path and alt name values then pushes to overall cardArray
+function CARD(randomImageName) {
+  this.img = `img/${randomImageName}.jpeg`;
+  this.alt = randomImageName;
+  cardArray.push(this);
+}
 
 // construct highscore object
 // save it to local storage - correct index according to score rank
 
+
 // ********************** Helpers, Executables ********************************
 
 // check local storage for username
-// username div = username
+if (localStorage.getItem('userName')) {
+  let userName = localStorage.getItem('userName');
+  let userNameDiv = document.getElementById('username');
+  userNameDiv.textContent = userName;
+}
 
 // countdown timer
-// random image selector, two instances, not repeated
 
-placeCardDivs();
+
+
 fillCards();
+placeCardDivs();
 fillCardDivs();
 
 // places blank divs on page and assigns corresponding id value
@@ -72,13 +82,6 @@ function getRandomImage(pickedIndices) {
   return imgNameArray[imageIndex];
 }
 
-// Constructor, fills img path and alt name values then pushes to overall cardArray
-function CARD(randomImageName) {
-  this.img = `img/${randomImageName}.jpeg`;
-  this.alt = randomImageName;
-  cardArray.push(this);
-}
-
 
 function fillCardDivs() {
   let pickedIndices = [];
@@ -92,7 +95,6 @@ function fillCardDivs() {
     // cardArray[i].domEL.src = cardArray[i].img;
     // cardArray[i].domEl.alt = cardArray[i].alt;
     cardArray[i].domAddress.textContent = cardArray[i].alt;
-    console.log(cardArray[i]);
   }
 }
 
@@ -100,7 +102,24 @@ function fillImgNameArray() {
   return ['orion-1', 'orion-2', 'orion-3', 'orion-4', 'orion-5', 'orion-6', 'orion-7', 'orion-8'];
 }
 
+// Start Game function - hide start button, show reset button, begin timer
+function startGame() {
+  startButton.style.display = 'none';
+  resetButton.style.display = 'block';
+  timer.textContent = timeRemaining;
+  setInterval(advanceTimer, 1000);
+}
+
+function advanceTimer() {
+  timeRemaining -= 1;
+  timer.textContent = timeRemaining;
+}
+
 // ********************** Event Handlers **************************************
+
+startButton.addEventListener('click', startGame);
+// resetButton.addEventListener('click', resetGame);
+
 
 // when timer runs out - end game
 // when all matches made - end game
