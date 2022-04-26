@@ -7,6 +7,8 @@ const STARTING_TIME = 60;
 const cardArray = [];
 const imgNameArray = fillImgNameArray();
 let timeRemaining = STARTING_TIME;
+let timerID;
+let prevCardID = null;
 // let userName = 'default_user';
 
 
@@ -44,6 +46,7 @@ if (localStorage.getItem('userName')) {
   let userNameDiv = document.getElementById('username');
   userNameDiv.textContent = userName;
 }
+timer.textContent = `Time Remaining: ${timeRemaining}`;
 
 // countdown timer
 
@@ -106,19 +109,52 @@ function fillImgNameArray() {
 function startGame() {
   startButton.style.display = 'none';
   resetButton.style.display = 'block';
-  timer.textContent = timeRemaining;
-  setInterval(advanceTimer, 1000);
+  timer.textContent = `Time Remaining: ${timeRemaining}`;
+  timerID = setInterval(advanceTimer, 1000);
+  gameContainer.addEventListener('click', flipCard);
+}
+
+// Flips card when cliked. If it is the second card being pressed, it will compare itself with the previously flipped card and if they match save it, otherwise flip both cards back over.
+function flipCard(e) {
+  let clickedCard = e.target.textContent;
+  let divID = e.target.id;
+  console.log(clickedCard + ' ' + divID);
+  e.target.style.border = '2px solid black';
+  if(prevCardID === null) {
+    prevCardID = divID;
+  } else if (divID === prevCardID) {
+    //make match
+    prevCardID = null;
+  } else {
+    //flip cards back over
+    prevCardID = null;
+  }
 }
 
 function advanceTimer() {
-  timeRemaining -= 1;
-  timer.textContent = timeRemaining;
+  if(timeRemaining > 0) {
+    timeRemaining -= 1;
+    timer.textContent = `Time Remaining: ${timeRemaining}`;
+  } else {
+    clearInterval(timerID);
+    // endGame();
+  }
+}
+
+function resetGame() {
+  resetButton.style.display = 'none';
+  startButton.style.display = 'block';
+  clearInterval(timerID);
+  gameContainer.removeEventListener('click', flipCard);
+  timeRemaining = STARTING_TIME;
+  timer.textContent = `Time Remaining: ${timeRemaining}`;
+  // reset Cards
 }
 
 // ********************** Event Handlers **************************************
 
 startButton.addEventListener('click', startGame);
-// resetButton.addEventListener('click', resetGame);
+resetButton.addEventListener('click', resetGame);
 
 
 // when timer runs out - end game
