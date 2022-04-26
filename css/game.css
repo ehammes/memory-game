@@ -1,0 +1,8 @@
+#game > div {
+  background-color: blue;
+}
+
+/* Hide image behind background */
+#game img {
+  z-index: -1;
+}

@@ -2,11 +2,12 @@
 
 // ********************** Global Variables ************************************
 
-// username
-// image array
-// game card array
-// const countdown timer
-// let current time
+const MATCHESREQUIRED = 8;
+const STARTING_TIME = 60;
+const cardArray = [];
+const imgNameArray = fillImgNameArray();
+let timeRemaining = STARTING_TIME;
+let userName = 'default_user';
 
 // card1 always in postiion 1, etc
 
@@ -21,6 +22,7 @@
 
 // construct game with game card divs
 // select random image, save as property of object
+const gameContainer = document.getElementById('game');
 // dom reference card element
 // append to game card array
 
@@ -36,9 +38,62 @@
 
 // countdown timer
 // random image selector, two instances, not repeated
-// building image array
-// rendering divs to page
 
+placeCards();
+for(let i = 1; i <= MATCHESREQUIRED; i++) {
+  let randomImageName = getRandomImage();
+  new CARD(randomImageName);
+  new CARD(randomImageName);
+}
+fillCards();
+
+// places blank divs on page and assigns corresponding id value
+function placeCards() {
+  for(let i = 0; i < MATCHESREQUIRED * 2; i++) {
+    let currCard = document.createElement('div');
+    gameContainer.appendChild(currCard);
+    currCard.id = `card-${i}`;
+  }
+}
+
+// Returns a string randomly picked from imgNameArray representing the file name of the image
+function getRandomImage() {
+  let imageIndex = Math.floor(Math.random() * (imgNameArray.length + 1));
+  let pickedIndices = [];
+  pickedIndices.push(imageIndex);
+  while(pickedIndices.includes(imageIndex)) {
+    imageIndex = Math.floor(Math.random() * (imgNameArray.length + 1));
+  }
+  return imgNameArray[imageIndex];
+}
+
+// Constructor, fills img path and alt name values then pushes to overall cardArray
+function CARD(randomImageName) {
+  this.img = `img/${randomImageName}.jpeg`;
+  this.alt = randomImageName;
+  cardArray.push(this);
+}
+
+
+function fillCards() {
+  let pickedIndices = [];
+  for(let i = 0; i < cardArray.length; i++) {
+    let randomDivIndex = Math.floor(Math.random() * (cardArray.length + 1));
+    while(pickedIndices.includes(randomDivIndex)) {
+      randomDivIndex = Math.floor(Math.random() * (cardArray.length + 1));
+    }
+    pickedIndices.push(randomDivIndex);
+    cardArray[i].domAddress = document.getElementById(`card-${randomDivIndex}`);
+    // cardArray[i].domEL.src = cardArray[i].img;
+    // cardArray[i].domEl.alt = cardArray[i].alt;
+    cardArray[i].domAddress.textContent = cardArray[i].alt;
+    console.log(cardArray[i]);
+  }
+}
+
+function fillImgNameArray() {
+  return ['orion-1', 'orion-2', 'orion-3', 'orion-4', 'orion-5', 'orion-6', 'orion-7', 'orion-8'];
+}
 
 // ********************** Event Handlers **************************************
 
