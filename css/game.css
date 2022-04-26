@@ -6,3 +6,7 @@
 #game img {
   z-index: -1;
 }
+
+#reset-game {
+  display: none;
+}
