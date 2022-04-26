@@ -26,7 +26,13 @@
 
 // getting two images
 
+// construct highscore object
+// save it to local storage - correct index according to score rank
+
 // ********************** Helpers, Executables ********************************
+
+// check local storage for username
+// username div = username
 
 // countdown timer
 // random image selector, two instances, not repeated
