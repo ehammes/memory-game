@@ -1,15 +1,8 @@
 'use strict';
 
-
-
 // ********************** Global Variables ************************************
 
-let parseduserName = 'New User';
-
-
-// let userName = ''; // pulled from local storage
-
-
+let displayedUserName = 'New User';
 
 // ********************** DOM References **************************************
 
@@ -17,14 +10,21 @@ let userForm = document.getElementById('user-data');
 
 // username div = username
 let userNameDiv = document.getElementById('username');
+userNameDiv.textContent = displayedUserName;
+
 // ********************** Helpers, Executables ********************************
 
-// check local storage for username
-let retrieveduserName = localStorage.getItem(userName);
-parseduserName = JSON.parse(retrieveduserName);
-userNameDiv.textContent = parseduserName;
+// // check local storage for username
+// function checkLocalStorage () {
 
+//   let retrieveduserName = localStorage.getItem(displayedUserName);
+//   let parseduserName = JSON.parse(retrieveduserName);
 
+//   if (parseduserName !== '') {
+//     userNameDiv.textContent = parseduserName;
+//   }
+// }
+// checkLocalStorage();
 
 // ********************** Event Handlers **************************************
 
@@ -32,31 +32,14 @@ function userNameSubmission(event) {
 
   event.preventDefault();
 
-
-
-  let parseduserName = event.target.username.value;
-  userNameDiv.textContent = parseduserName;
-  console.log('userName', parseduserName);
+  displayedUserName = event.target.username.value;
+  userNameDiv.textContent = displayedUserName;
 
   // let stringifiedUserName = JSON.stringify(userName);
-  localStorage.setItem('userName', parseduserName);
+  localStorage.setItem('userName', displayedUserName);
 }
-// Form submission
-// username input saved to local storage
-
-
-
-
-
-
-
-// {userName: event.target.username.value}
-// color - stretch
 
 // ********************** Event Listeners ****************//
 
 userForm.addEventListener('submit', userNameSubmission);
-
-
-
 
