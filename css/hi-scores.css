@@ -11,7 +11,7 @@ h2 {
 }
 
 body {
-  background-color: rgb(246, 242, 236);
+  background-color: rgb(244, 244, 244);
 }
 
 #high-scores {
@@ -35,6 +35,12 @@ thead td {
   padding: 4% 1% 0.7% 1%;
   font-size: 20px;
   font-weight: bold;
+  background-color: rgb(225, 225, 225);
+}
+
+thead {
+  border-style: solid;
+  border-bottom-width: 3px;
 }
 
 td {
@@ -43,4 +49,5 @@ td {
   border-color: black;
   text-align: center;
   padding: 3%;
+  font-size: 18px;
 }
