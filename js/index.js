@@ -2,6 +2,7 @@
 
 // ********************** Global Variables ************************************
 
+// check local storage for username
 let displayedUserName = 'New User';
 if (localStorage.getItem('userName') !== null) {
   displayedUserName = (localStorage.getItem('userName'));
@@ -16,10 +17,6 @@ let userForm = document.getElementById('user-data');
 // username div = username
 let userNameDiv = document.getElementById('username');
 userNameDiv.textContent = displayedUserName;
-
-// ********************** Helpers, Executables ********************************
-
-
 
 // ********************** Event Handlers **************************************
 

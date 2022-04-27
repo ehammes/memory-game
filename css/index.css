@@ -1,0 +1,73 @@
+#navrow1 {DISPLAY: FLEX;
+    JUSTIFY-CONTENT: SPACE-AROUND;
+    ALIGN-CONTENT: baseline;
+    ALIGN-ITEMS: FLEX-END;}
+
+    #navrow2 {DISPLAY: FLEX;
+      JUSTIFY-CONTENT: SPACE-AROUND;
+      ALIGN-CONTENT: baseline;
+      ALIGN-ITEMS: FLEX-END;}
+
+#gameofweek {
+  DISPLAY: FLEX;
+      JUSTIFY-CONTENT: SPACE-AROUND;
+      ALIGN-CONTENT: baseline;
+}
+
+
+#hero {
+  DISPLAY: FLEX;
+      JUSTIFY-CONTENT: SPACE-AROUND;
+   
+      
+
+}
+
+#sponsorname{
+  DISPLAY: FLEX;
+  JUSTIFY-CONTENT: SPACE-AROUND;
+  padding-right: 3%;
+}
+
+#instructions{
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    
+}
+
+#user-data {
+ 
+  width: max-content;
+  border-style: solid;
+  border-width: thick;
+  margin: auto;
+  text-align: center;
+  margin-top: 2%;
+  
+}
+
+h3 { display: flex;
+  justify-content: center;
+  margin-top: 2%;
+  
+}
+
+#upcoming-games {
+  margin-top: 1%;
+  display: flex;
+  justify-content: center;
+  
+  
+}
+
+a {
+  margin-top: 1%;
+  margin-right: 2%;
+  margin-left: 1%;
+}
+
+#play-now {
+  
+}

@@ -10,36 +10,40 @@
 
 <body>
   <header>
-    <section>
-      <div>Logo</div>
+    <section id="navrow1">
+      <div> <a href="https://placeholder.com"><img src="http://via.placeholder.com/100x100"></a></div>
       <h1>Overall Website Name</h1>
-      <div id="username">Default_User</div>
+
+      <div id="sponsorname"></div>
       <div>
         Sponsored By:
-        <div>
-          Sponsor
-        </div>
+        Sponsor
+      </div>
+      <div id="username">Default_User</div>
       </div>
     </section>
     <hr>
 
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="game.html">Game of The Week</a></li>
-        <li><a href="hi-scores.html">High Scores</a></li>
-      </ul>
+    <nav id="navrow2">
+
+      <a href="index.html">Home</a>
+      <a href="game.html">Game of The Week</a>
+      <a href="hi-scores.html">High Scores</a>
+
     </nav>
   </header>
   <main>
-    <h2>Our new game this week - MATCHSTRAVAGANZA</h2>
+    <h2 id="gameofweek">Our new game this week - MATCHSTRAVAGANZA</h2>
     <section>
-      <a href="https://placeholder.com"><img src="http://via.placeholder.com/960x480"></a>
-      <a href="game.html"><div id="play-now">Start</div></a>
+      <a id="hero" href="https://placeholder.com"><img src="http://via.placeholder.com/960x480"></a>
+      <a href="game.html">
+        <div id="play-now"><button>Start</button></div>
+      </a>
     </section>
-    <section>
-      <h3>How the game works!</h3>
+    <section id = "instructions">
+      
       <ol>
+        <li><h3>How the game works!</h3></li>
         <li>Press "Start" to begin the game and start the timer.</li>
         <li>Pick a card to reveal what is behind it.</li>
         <li>Pick a second card in the same manner.</li>
@@ -49,7 +53,7 @@
       </ol>
     </section>
     <form id="user-data">
-      <fieldset>
+      <fieldset id="form-container">
         <legend>Player Info</legend>
         <label for="username">Username:</label><br>
         <input type="text" id="username" name="username"><br>
@@ -62,10 +66,17 @@
       </fieldset>
     </form>
     <h3>Sneak Peak at our upcoming games!</h3>
-    <section>
-      <a href="https://placeholder.com"><img src="http://via.placeholder.com/300x300"><p>Game Name #1</p></a>
-      <a href="https://placeholder.com"><img src="http://via.placeholder.com/300x300"><p>Game Name #2</p></a>
-      <a href="https://placeholder.com"><img src="http://via.placeholder.com/300x300"><p>Game Name #3</p></a>
+    <section id="upcoming-games">
+      
+      <a href="https://placeholder.com"><h3>Game Name #1</h3><img src="http://via.placeholder.com/300x300">
+        
+      </a>
+      <a href="https://placeholder.com"><h3>Game Name #2</h3><img src="http://via.placeholder.com/300x300">
+        
+      </a>
+      <a href="https://placeholder.com"><h3>Game Name #2</h3><img src="http://via.placeholder.com/300x300">
+      
+      </a>
     </section>
   </main>
   <hr>
