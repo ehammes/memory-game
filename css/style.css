@@ -4,24 +4,31 @@
   align-items: flex-end;
 }
 
+#username-sponsor {
+  display: flex;
+  align-items: end;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#username {
+  padding: 0% 10% 0% 0%;
+}
+
 #nav-row-2 {
   display: block;
-  align-content: center;
   text-align: center;
   padding: 1% 0% 1% 0%;
-  margin: 2.5% 0% 2.5% 0%;
+  margin: 1% 0% 1% 0%;
   font-size: 24px;
   font-weight: bold;
 }
 
-#username-sponsor {
-  font-size: 16px;
-}
-
 .nav {
-  padding: 1% 3% 1% 3%;
+  padding: .8% 2% .8% 2%;
   background-color: rgb(230, 230, 230);
   border: 2.5px solid black;
+  border-radius: 5px;
 }
 
 .nav:hover {
