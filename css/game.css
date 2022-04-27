@@ -1,16 +1,26 @@
+#timer {
+  width: max-content;
+  margin: 5px auto;
+  font-size: 24pt;
+  border: groove 5px gray;
+  border-radius: 5px;
+  padding: 5px;
+}
+
 .card-container {
   background-color: lightblue;
   width: 200px;
   height: 200px;
-  border: 10px solid black;
+  border: 5px groove black;
   margin: 5px;
+  border-radius: 15px;
 }
 
-#start-game,
-#reset-game {
-  background-color: aqua;
-  width: 150px;
-  height: 75px;
+.card-row {
+  display: flex;
+  width: 960px;
+  margin: 0 auto;
+  justify-content: center;
 }
 
 /* Hide image behind background */
@@ -18,11 +28,25 @@
   visibility: hidden;
 }
 
+#start-game, #reset-game {
+  display: flex;
+  background-color: aqua;
+  width: 100px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 2px 2px;
+  margin: 5px auto;
+}
+
+#start-game:active, #reset-game:active {
+  margin-top: 7px;
+  margin-bottom: 3px;
+  box-shadow: none;
+}
+
 #reset-game {
   display: none;
 }
-
-/* #game {
-  display: flex;
-  align
-} */

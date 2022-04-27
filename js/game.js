@@ -63,11 +63,17 @@ fillCardDivs();
 
 // places blank divs on page and assigns corresponding id value
 function placeCardDivs() {
-  for (let i = 0; i < MATCHESREQUIRED * 2; i++) {
-    let currCard = document.createElement('div');
-    gameContainer.appendChild(currCard);
-    currCard.id = `card-${i}`;
-    currCard.className = 'card-container';
+  for (let i = 0; i < 4; i++) {
+    let cardRow = document.createElement('div');
+    gameContainer.appendChild(cardRow);
+    cardRow.id = `row-${i + 1}`;
+    cardRow.className = 'card-row';
+    for (let j = i * 4; j < (i + 1) * 4; j++) {
+      let currCard = document.createElement('div');
+      cardRow.appendChild(currCard);
+      currCard.id = `card-${j}`;
+      currCard.className = 'card-container';
+    }
   }
 }
 
@@ -111,13 +117,13 @@ function fillCardDivs() {
 }
 
 function fillImgNameArray() {
-  return ['ben-dogs-1', 'ben-dogs-2', 'ben-dogs-3', 'ben-dogs-4', 'ben-dogs-5', 'ben-dogs-6', 'ben-dogs-7', 'ben-dogs-8', 'ben-dogs-9', 'ben-dogs-10', 'ben-dogs-11', 'ben-dogs-12', 'gsd-1', 'gsd-2', 'gsd-3', 'gsd-4', 'gsd-5', 'gsd-6', 'gsd-7', 'gsd-8', 'gsd-9', 'Quentin1', 'Quentin2','Quentin3', 'Quentin4', 'Quentin5', 'Quentin6', 'Quentin7', 'Quentin8', 'IMG_1', 'IMG_2', 'IMG_3', 'IMG_4', 'IMG_5', 'IMG_6', 'IMG_7', 'IMG_8', 'IMG_9'];
+  return ['ben-dogs-1', 'ben-dogs-2', 'ben-dogs-3', 'ben-dogs-4', 'ben-dogs-5', 'ben-dogs-6', 'ben-dogs-7', 'ben-dogs-8', 'ben-dogs-9', 'ben-dogs-10', 'ben-dogs-11', 'ben-dogs-12', 'gsd-1', 'gsd-2', 'gsd-3', 'gsd-4', 'gsd-5', 'gsd-6', 'gsd-7', 'gsd-8', 'gsd-9', 'Quentin1', 'Quentin2', 'Quentin3', 'Quentin4', 'Quentin5', 'Quentin6', 'Quentin7', 'Quentin8', 'IMG_1', 'IMG_2', 'IMG_3', 'IMG_4', 'IMG_5', 'IMG_6', 'IMG_7', 'IMG_8', 'IMG_9'];
 }
 
 // Start Game function - hide start button, show reset button, begin timer
 function startGame() {
   startButton.style.display = 'none';
-  resetButton.style.display = 'block';
+  resetButton.style.display = 'flex';
   timer.textContent = `Time Remaining: ${timeRemaining}`;
   timerID = setInterval(advanceTimer, 1000);
   gameContainer.addEventListener('click', flipCard);
@@ -125,7 +131,7 @@ function startGame() {
 
 // Flips card when clicked. If it is the second card being pressed, it will compare itself with the previously flipped card and if they match save it, otherwise flip both cards back over.
 function flipCard(e) {
-  if (!(e.target.id === 'start-game' || e.target.id === 'reset-game' || e.target.tagName === 'IMG' || e.target.tagName === 'SECTION' || previousCardContainer === e.target.id)) {
+  if (!(e.target.id === 'start-game' || e.target.id === 'reset-game' || e.target.tagName === 'IMG' || e.target.tagName === 'SECTION' || previousCardContainer === e.target.id || e.target.className === 'card-row')) {
     let clickedCard = e.target.alt;
     let divID = e.target;
     e.target.children.item(0).style.visibility = 'visible';
@@ -141,7 +147,7 @@ function flipCard(e) {
       //flip cards back over
       attemptsMade++;
       gameContainer.removeEventListener('click', flipCard);
-      setTimeout(function () {noMatch(e.target);}, 1000);
+      setTimeout(function () { noMatch(e.target); }, 1000);
     }
     console.log(matchesMade + ' out of ' + attemptsMade);
   }
@@ -165,7 +171,7 @@ function advanceTimer() {
 
 function resetGame() {
   resetButton.style.display = 'none';
-  startButton.style.display = 'block';
+  startButton.style.display = 'flex';
   clearInterval(timerID);
   gameContainer.removeEventListener('click', flipCard);
   timeRemaining = STARTING_TIME;
