@@ -4,17 +4,17 @@
 
 const MATCHESREQUIRED = 8;
 const STARTING_TIME = 60;
-const cardArray = [];
 const imgNameArray = fillImgNameArray();
+let cardArray = [];
 let timeRemaining = STARTING_TIME;
 let attemptsMade = 0;
 let matchesMade = 0;
-let timerID;
 let previousCard = null;
 let previousCardContainer = null;
 let userName = 'default_user';
 let fetchHighScoresArray = getHighScores();
 let parsedHiScoresArray = JSON.parse(fetchHighScoresArray);
+let timerID;
 
 
 // card1 always in postiion 1, etc
@@ -139,12 +139,13 @@ function flipCard(e) {
       previousCard = clickedCard;
       previousCardContainer = divID;
     } else if (clickedCard === previousCard) {
-      //make match
       attemptsMade++;
       matchesMade++;
       previousCard = null;
+      if(matchesMade === 1) {
+        endGame();
+      }
     } else {
-      //flip cards back over
       attemptsMade++;
       gameContainer.removeEventListener('click', flipCard);
       setTimeout(function () { noMatch(e.target); }, 1000);
@@ -176,16 +177,26 @@ function resetGame() {
   gameContainer.removeEventListener('click', flipCard);
   timeRemaining = STARTING_TIME;
   timer.textContent = `Time Remaining: ${timeRemaining}`;
-  // reset Cards
+  for(let i = 0; i < cardArray.length; i++) {
+    cardArray[i].containerDomAddress.innerHTML = '';
+  }
+  cardArray = [];
+  fillCards();
+  fillCardDivs();
+  attemptsMade = 0;
+  matchesMade = 0;
+  previousCard = null;
+  previousCardContainer = null;
 }
 
 function endGame() {
   clearInterval(timerID);
+  gameContainer.removeEventListener('click', flipCard);
   new HighScore();
   let stringifiedHiScoresArray = JSON.stringify(parsedHiScoresArray);
   localStorage.setItem('hiScoresArray', stringifiedHiScoresArray);
-  if (matchesMade === MATCHESREQUIRED) {
-    alert('Congrats, you completed all the matches!');
+  if (matchesMade === 1) {
+    setTimeout(function() {alert('Congrats, you completed all the matches!');}, 5);
   } else {
     alert('You failed!');
   }
