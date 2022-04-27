@@ -18,7 +18,8 @@
 #hero {
   DISPLAY: FLEX;
       JUSTIFY-CONTENT: SPACE-AROUND;
-      ALIGN-CONTENT: baseline;
+   
+      
 
 }
 
@@ -32,6 +33,41 @@
   display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    overflow: scroll;
     text-align: center;
+    
+}
+
+#user-data {
+ 
+  width: max-content;
+  border-style: solid;
+  border-width: thick;
+  margin: auto;
+  text-align: center;
+  margin-top: 2%;
+  
+}
+
+h3 { display: flex;
+  justify-content: center;
+  margin-top: 2%;
+  
+}
+
+#upcoming-games {
+  margin-top: 1%;
+  display: flex;
+  justify-content: center;
+  
+  
+}
+
+a {
+  margin-top: 1%;
+  margin-right: 2%;
+  margin-left: 1%;
+}
+
+#play-now {
+  
 }
