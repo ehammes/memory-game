@@ -2,6 +2,7 @@
 
 // ********************** Global Variables ************************************
 
+// check local storage for username
 let displayedUserName = 'New User';
 if (localStorage.getItem('userName') !== null) {
   displayedUserName = (localStorage.getItem('userName'));
@@ -16,18 +17,6 @@ let userForm = document.getElementById('user-data');
 // username div = username
 let userNameDiv = document.getElementById('username');
 userNameDiv.textContent = displayedUserName;
-
-// check local storage for username
-let retrieveduserName = localStorage.getItem(parseduserName);
-parseduserName = JSON.parse(retrieveduserName);
-userNameDiv.textContent = parseduserName;
-
-if (localStorage.getItem('userName') !== null) {
-  console.log('username exists');
-} else {
-  console.log('username does not exist');
-}
-
 
 // ********************** Event Handlers **************************************
 
