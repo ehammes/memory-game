@@ -1,12 +1,28 @@
-#game > div {
+.card-container {
   background-color: lightblue;
+  width: 200px;
+  height: 200px;
+  border: 10px solid black;
+  margin: 5px;
+}
+
+#start-game,
+#reset-game {
+  background-color: aqua;
+  width: 150px;
+  height: 75px;
 }
 
 /* Hide image behind background */
 #game img {
-  z-index: -1;
+  visibility: hidden;
 }
 
 #reset-game {
   display: none;
 }
+
+/* #game {
+  display: flex;
+  align
+} */
