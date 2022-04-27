@@ -14,6 +14,7 @@
   border: 5px groove black;
   margin: 5px;
   border-radius: 15px;
+  overflow: hidden;
 }
 
 .card-row {
