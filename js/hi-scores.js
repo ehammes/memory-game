@@ -8,6 +8,8 @@ if (localStorage.getItem('userName') !== null) {
 } else {
   displayedUserName;
 }
+let fetchHighScoresArray = getHighScores();
+let parsedHiScoresArray = JSON.parse(fetchHighScoresArray);
 
 // ********************** DOM References **************************************
 
@@ -41,28 +43,28 @@ function createHeaderRow() {
   timeHeading.textContent = 'Time Remaining';
 }
 
-function createHighScoreRows() {
+function createHighScoreRows(i) {
   const highScoreRow = document.createElement('tr');
   tBodyElem.appendChild(highScoreRow);
 
   const rowPlayer = document.createElement('td');
   highScoreRow.appendChild(rowPlayer);
-  rowPlayer.textContent = displayedUserName;
+  rowPlayer.textContent = parsedHiScoresArray[i].userName;
 
   const rowMatchesMade = document.createElement('td');
   highScoreRow.appendChild(rowMatchesMade);
-  rowMatchesMade.textContent = 'number of matches made';
+  rowMatchesMade.textContent = parsedHiScoresArray[i].matchesMade;
 
   const rowTimeRemaining = document.createElement('td');
   highScoreRow.appendChild(rowTimeRemaining);
-  rowTimeRemaining.textContent = 'time remaining';
+  rowTimeRemaining.textContent = parsedHiScoresArray[i].timeRemaining;
 
 }
 
 createHeaderRow();
 
-for (let i = 0; i < 6; i++) {
-  createHighScoreRows();
+for (let i = 0; i < parsedHiScoresArray.length; i++) {
+  createHighScoreRows(i);
 } // placeholder for constructor function, putting scores in from games played
 
 
@@ -75,3 +77,11 @@ userNameDiv.textContent = displayedUserName;
 // highscores = [name, number of cards matched, time] - from local storage
 // current username
 // render highscores data to table
+
+function getHighScores() {
+  if (localStorage.getItem('hiScoresArray')) {
+    return localStorage.getItem('hiScoresArray');
+  } else {
+    return '[]';
+  }
+}

@@ -7,9 +7,12 @@ const STARTING_TIME = 60;
 const cardArray = [];
 const imgNameArray = fillImgNameArray();
 let timeRemaining = STARTING_TIME;
+let matchesMade = 0;
 let timerID;
 let prevCardID = null;
-// let userName = 'default_user';
+let userName = 'default_user';
+let fetchHighScoresArray = getHighScores();
+let parsedHiScoresArray = JSON.parse(fetchHighScoresArray);
 
 
 // card1 always in postiion 1, etc
@@ -28,7 +31,7 @@ const timer = document.getElementById('timer');
 // ********************** Constructor *****************************************
 
 // Constructor, fills img path and alt name values then pushes to overall cardArray
-function CARD(randomImageName) {
+function Card(randomImageName) {
   this.img = `img/${randomImageName}.jpeg`;
   this.alt = randomImageName;
   cardArray.push(this);
@@ -42,7 +45,7 @@ function CARD(randomImageName) {
 
 // check local storage for username
 if (localStorage.getItem('userName')) {
-  let userName = localStorage.getItem('userName');
+  userName = localStorage.getItem('userName');
   let userNameDiv = document.getElementById('username');
   userNameDiv.textContent = userName;
 }
@@ -58,7 +61,7 @@ fillCardDivs();
 
 // places blank divs on page and assigns corresponding id value
 function placeCardDivs() {
-  for(let i = 0; i < MATCHESREQUIRED * 2; i++) {
+  for (let i = 0; i < MATCHESREQUIRED * 2; i++) {
     let currCard = document.createElement('div');
     gameContainer.appendChild(currCard);
     currCard.id = `card-${i}`;
@@ -68,17 +71,17 @@ function placeCardDivs() {
 // Picks a random image and fill two Card Objects with that image
 function fillCards() {
   let pickedIndices = [];
-  for(let i = 1; i <= MATCHESREQUIRED; i++) {
+  for (let i = 1; i <= MATCHESREQUIRED; i++) {
     let randomImageName = getRandomImage(pickedIndices);
-    new CARD(randomImageName);
-    new CARD(randomImageName);
+    new Card(randomImageName);
+    new Card(randomImageName);
   }
 }
 
 // Returns a string randomly picked from imgNameArray representing the file name of the image
 function getRandomImage(pickedIndices) {
   let imageIndex = Math.floor(Math.random() * (imgNameArray.length));
-  while(pickedIndices.includes(imageIndex)) {
+  while (pickedIndices.includes(imageIndex)) {
     imageIndex = Math.floor(Math.random() * (imgNameArray.length));
   }
   pickedIndices.push(imageIndex);
@@ -88,9 +91,9 @@ function getRandomImage(pickedIndices) {
 
 function fillCardDivs() {
   let pickedIndices = [];
-  for(let i = 0; i < cardArray.length; i++) {
+  for (let i = 0; i < cardArray.length; i++) {
     let randomDivIndex = Math.floor(Math.random() * (cardArray.length));
-    while(pickedIndices.includes(randomDivIndex)) {
+    while (pickedIndices.includes(randomDivIndex)) {
       randomDivIndex = Math.floor(Math.random() * (cardArray.length));
     }
     pickedIndices.push(randomDivIndex);
@@ -110,7 +113,7 @@ function startGame() {
   startButton.style.display = 'none';
   resetButton.style.display = 'block';
   timer.textContent = `Time Remaining: ${timeRemaining}`;
-  timerID = setInterval(advanceTimer, 1000);
+  timerID = setInterval(advanceTimer, 100);
   gameContainer.addEventListener('click', flipCard);
 }
 
@@ -120,7 +123,7 @@ function flipCard(e) {
   let divID = e.target.id;
   console.log(clickedCard + ' ' + divID);
   e.target.style.border = '2px solid black';
-  if(prevCardID === null) {
+  if (prevCardID === null) {
     prevCardID = divID;
   } else if (divID === prevCardID) {
     //make match
@@ -132,12 +135,11 @@ function flipCard(e) {
 }
 
 function advanceTimer() {
-  if(timeRemaining > 0) {
+  if (timeRemaining > 0) {
     timeRemaining -= 1;
     timer.textContent = `Time Remaining: ${timeRemaining}`;
   } else {
-    clearInterval(timerID);
-    // endGame();
+    endGame();
   }
 }
 
@@ -149,6 +151,33 @@ function resetGame() {
   timeRemaining = STARTING_TIME;
   timer.textContent = `Time Remaining: ${timeRemaining}`;
   // reset Cards
+}
+
+function endGame() {
+  clearInterval(timerID);
+  new HighScore();
+  let stringifiedHiScoresArray = JSON.stringify(parsedHiScoresArray);
+  localStorage.setItem('hiScoresArray', stringifiedHiScoresArray);
+  if (matchesMade === MATCHESREQUIRED) {
+    alert('Congrats, you completed all the matches!');
+  } else {
+    alert('You failed!');
+  }
+}
+
+function HighScore(){
+  this.userName = userName;
+  this.matchesMade = matchesMade;
+  this.timeRemaining = timeRemaining;
+  parsedHiScoresArray.push(this);
+}
+
+function getHighScores() {
+  if (localStorage.getItem('hiScoresArray')) {
+    return localStorage.getItem('hiScoresArray');
+  } else {
+    return '[]';
+  }
 }
 
 // ********************** Event Handlers **************************************
