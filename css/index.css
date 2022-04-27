@@ -1,0 +1,37 @@
+#navrow1 {DISPLAY: FLEX;
+    JUSTIFY-CONTENT: SPACE-AROUND;
+    ALIGN-CONTENT: baseline;
+    ALIGN-ITEMS: FLEX-END;}
+
+    #navrow2 {DISPLAY: FLEX;
+      JUSTIFY-CONTENT: SPACE-AROUND;
+      ALIGN-CONTENT: baseline;
+      ALIGN-ITEMS: FLEX-END;}
+
+#gameofweek {
+  DISPLAY: FLEX;
+      JUSTIFY-CONTENT: SPACE-AROUND;
+      ALIGN-CONTENT: baseline;
+}
+
+
+#hero {
+  DISPLAY: FLEX;
+      JUSTIFY-CONTENT: SPACE-AROUND;
+      ALIGN-CONTENT: baseline;
+
+}
+
+#sponsorname{
+  DISPLAY: FLEX;
+  JUSTIFY-CONTENT: SPACE-AROUND;
+  padding-right: 3%;
+}
+
+#instructions{
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: scroll;
+    text-align: center;
+}
