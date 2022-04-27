@@ -7,9 +7,11 @@ const STARTING_TIME = 60;
 const cardArray = [];
 const imgNameArray = fillImgNameArray();
 let timeRemaining = STARTING_TIME;
+let attemptsMade = 0;
 let matchesMade = 0;
 let timerID;
-let prevCardID = null;
+let previousCard = null;
+let previousCardContainer = null;
 let userName = 'default_user';
 let fetchHighScoresArray = getHighScores();
 let parsedHiScoresArray = JSON.parse(fetchHighScoresArray);
@@ -65,6 +67,7 @@ function placeCardDivs() {
     let currCard = document.createElement('div');
     gameContainer.appendChild(currCard);
     currCard.id = `card-${i}`;
+    currCard.className = 'card-container';
   }
 }
 
@@ -97,15 +100,18 @@ function fillCardDivs() {
       randomDivIndex = Math.floor(Math.random() * (cardArray.length));
     }
     pickedIndices.push(randomDivIndex);
-    cardArray[i].domAddress = document.getElementById(`card-${randomDivIndex}`);
-    // cardArray[i].domEL.src = cardArray[i].img;
-    // cardArray[i].domEl.alt = cardArray[i].alt;
-    cardArray[i].domAddress.textContent = cardArray[i].alt;
+    cardArray[i].containerDomAddress = document.getElementById(`card-${randomDivIndex}`);
+    cardArray[i].domAddress = document.createElement('img');
+    cardArray[i].containerDomAddress.alt = cardArray[i].alt;
+    cardArray[i].domAddress.id = `${cardArray[i].alt}`;
+    cardArray[i].containerDomAddress.appendChild(cardArray[i].domAddress);
+    cardArray[i].domAddress.src = cardArray[i].img;
+    cardArray[i].domAddress.alt = cardArray[i].alt;
   }
 }
 
 function fillImgNameArray() {
-  return ['orion-1', 'orion-2', 'orion-3', 'orion-4', 'orion-5', 'orion-6', 'orion-7', 'orion-8'];
+  return ['ben-dogs-1', 'ben-dogs-2', 'ben-dogs-3', 'ben-dogs-4', 'ben-dogs-5', 'ben-dogs-6', 'ben-dogs-7', 'ben-dogs-8', 'ben-dogs-9', 'ben-dogs-10', 'ben-dogs-11', 'ben-dogs-12', 'gsd-1', 'gsd-2', 'gsd-3', 'gsd-4', 'gsd-5', 'gsd-6', 'gsd-7', 'gsd-8', 'gsd-9'];
 }
 
 // Start Game function - hide start button, show reset button, begin timer
@@ -113,25 +119,39 @@ function startGame() {
   startButton.style.display = 'none';
   resetButton.style.display = 'block';
   timer.textContent = `Time Remaining: ${timeRemaining}`;
-  timerID = setInterval(advanceTimer, 100);
+  timerID = setInterval(advanceTimer, 1000);
   gameContainer.addEventListener('click', flipCard);
 }
 
-// Flips card when cliked. If it is the second card being pressed, it will compare itself with the previously flipped card and if they match save it, otherwise flip both cards back over.
+// Flips card when clicked. If it is the second card being pressed, it will compare itself with the previously flipped card and if they match save it, otherwise flip both cards back over.
 function flipCard(e) {
-  let clickedCard = e.target.textContent;
-  let divID = e.target.id;
-  console.log(clickedCard + ' ' + divID);
-  e.target.style.border = '2px solid black';
-  if (prevCardID === null) {
-    prevCardID = divID;
-  } else if (divID === prevCardID) {
-    //make match
-    prevCardID = null;
-  } else {
-    //flip cards back over
-    prevCardID = null;
+  if (!(e.target.id === 'start-game' || e.target.id === 'reset-game' || e.target.tagName === 'IMG' || e.target.tagName === 'SECTION' || previousCardContainer === e.target.id)) {
+    let clickedCard = e.target.alt;
+    let divID = e.target;
+    e.target.children.item(0).style.visibility = 'visible';
+    if (previousCard === null) {
+      previousCard = clickedCard;
+      previousCardContainer = divID;
+    } else if (clickedCard === previousCard) {
+      //make match
+      attemptsMade++;
+      matchesMade++;
+      previousCard = null;
+    } else {
+      //flip cards back over
+      attemptsMade++;
+      gameContainer.removeEventListener('click', flipCard);
+      setTimeout(function () {noMatch(e.target);}, 1000);
+    }
+    console.log(matchesMade + ' out of ' + attemptsMade);
   }
+}
+
+function noMatch(currCard) {
+  gameContainer.addEventListener('click', flipCard);
+  currCard.children.item(0).style.visibility = 'hidden';
+  previousCardContainer.children.item(0).style.visibility = 'hidden';
+  previousCard = null;
 }
 
 function advanceTimer() {
@@ -165,7 +185,7 @@ function endGame() {
   }
 }
 
-function HighScore(){
+function HighScore() {
   this.userName = userName;
   this.matchesMade = matchesMade;
   this.timeRemaining = timeRemaining;
