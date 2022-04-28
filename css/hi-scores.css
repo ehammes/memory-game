@@ -12,6 +12,7 @@ h2 {
   border: groove 5px black;
   border-radius: 10px;
   padding: 10px 100px;
+  font-weight: bolder;
 }
 
 #high-scores {
