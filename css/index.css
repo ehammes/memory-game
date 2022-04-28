@@ -13,10 +13,11 @@ h1 {
 }
 
 #gameofweek:hover {
-  background-color: aquamarine;
+  background-color: #27B46E;
   display: flex;
   justify-content: space-around;
   align-content: baseline;
+  color: #f3e2b3;
 }
 
 .container {
@@ -38,8 +39,8 @@ h1 {
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  background-color: #555;
-  color: white;
+  background-color: #F03613;
+  color: #f3e2b3;
   font-size: 16px;
   padding: 12px 24px;
   border: solid 1px;
@@ -49,7 +50,7 @@ h1 {
 }
 
 .container .btn:hover {
-  background-color: black;
+  background-color: #EDC02C;
 }
 
 #sponsorname {
@@ -59,9 +60,11 @@ h1 {
 }
 
 #instructions {
-  width: 674px;
+  background-color: #F03613;
+  color: #f3e2b3;
+  width: 674;
   margin: 20px auto 40px;
-  border: groove 5px lightgray;
+  border: groove 5px black;
   padding: 10px 20px 20px;
   border-radius: 10px;
 }
@@ -83,8 +86,9 @@ h1 {
   width: max-content;
   border-style: solid;
   border-width: 3px;
-  border-radius: 10px;
+  border-color: #F03613;
   margin: 20px auto;
+  border-radius: 10px;
   text-align: center;
   padding: 18px;
 }
