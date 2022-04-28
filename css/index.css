@@ -85,17 +85,10 @@ h3 {
 }
 
 #upcoming-games {
-  margin-top: 1%;
+  margin: 1% 0% 2% 0%;
   display: flex;
   justify-content: center;
-
-
 }
 
-/* a {
-  margin-top: 1%;
-  margin-right: 2%;
-  margin-left: 1%;
-} */
 
 /* #play-now {} */
