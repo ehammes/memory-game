@@ -4,10 +4,12 @@ h1 {
 }
 
 h2 {
+  background-color: #f3e2b3;
+  color: #27b46e;
   width: max-content;
   font-size: 48pt;
   margin: 20px auto 30px auto;
-  border: groove 5px lightgray;
+  border: groove 5px black;
   padding: 10px 100px;
 }
 
@@ -32,7 +34,8 @@ thead td {
   padding: 4% 1% 0.7% 1%;
   font-size: 20px;
   font-weight: bold;
-  background-color: rgb(225, 225, 225);
+  background-color: #edc02c;
+  color: black;
 }
 
 thead {
@@ -41,6 +44,9 @@ thead {
 }
 
 td {
+  background-color: #f3e2b3;
+  color: #27b46e;
+  font-weight: bolder;
   border-style: solid;
   border-width: 2px;
   border-color: black;
