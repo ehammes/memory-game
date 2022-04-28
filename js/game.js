@@ -197,7 +197,7 @@ function endGame() {
   let stringifiedHiScoresArray = JSON.stringify(parsedHiScoresArray);
   localStorage.setItem('hiScoresArray', stringifiedHiScoresArray);
   if (matchesMade === MATCHESREQUIRED) {
-    setTimeout(function() {alert('Congrats, you completed all the matches!');}, 5);
+    setTimeout(function() {alert('Congrats, you completed all the matches!');}, 40);
   } else {
     alert('You failed!');
   }

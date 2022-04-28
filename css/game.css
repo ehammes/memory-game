@@ -16,6 +16,7 @@
   margin: 20px auto 30px auto;
   border: groove 5px black;
   padding: 10px 100px;
+  border-radius: 10px;
 }
 
 h1 {
@@ -28,14 +29,15 @@ h1 {
   margin: 5px auto;
   font-size: 24pt;
   border: groove 5px black;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 5px;
   background-color: #edc02c;
 }
 
 #game {
-  width: 1000px;
+  width: 960px;
   border: 3px solid black;
+  border-radius: 10px;
   margin: 10px auto;
   padding: 10px 0;
 }
@@ -88,19 +90,19 @@ h1 {
 }
 
 #instructions {
-  width: fit-content;
-  margin: 20px auto 50px auto;
+  width: 674px;
+  margin: 20px auto 40px;
   border: groove 5px black;
   padding: 10px 20px 20px;
   background-color: #F03613;
   color: #f3e2b3;
+  border-radius: 10px;
 }
 
 #instructions h3 {
   font-size: 18pt;
   font-weight: bold;
   margin: 0 auto 10px auto;
-  /* border: 2px solid black; */
   width: max-content;
   padding: 5px; 
 }

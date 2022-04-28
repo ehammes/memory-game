@@ -10,6 +10,7 @@ h2 {
   font-size: 48pt;
   margin: 20px auto 30px auto;
   border: groove 5px black;
+  border-radius: 10px;
   padding: 10px 100px;
 }
 
