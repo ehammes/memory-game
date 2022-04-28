@@ -29,24 +29,26 @@ h1 {
 .container img {
   width: calc(100% - 4px);
   height: auto;
-  border: 2px solid black;
+  border: 3px solid black;
   border-radius: 10px;
 }
 
 .container .btn {
   position: absolute;
-  top: 84%;
+  top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #F03613;
   color: #f3e2b3;
   font-size: 16px;
-  padding: 12px 24px;
-  border: solid 1px;
+  padding: 22px 34px;
+  border: solid 2px;
   cursor: pointer;
   border-radius: 5px;
   text-align: center;
+  font-weight: bold;
+  font-size: 20pt;
 }
 
 .container .btn:hover {
@@ -54,8 +56,8 @@ h1 {
 }
 
 #sponsorname {
-  DISPLAY: FLEX;
-  JUSTIFY-CONTENT: SPACE-AROUND;
+  display: flex;
+  justify-content: space-around;
   padding-right: 3%;
 }
 
@@ -102,6 +104,7 @@ button {
 }
 
 #user-data {
+  
   background-color: #f3e2b3;
   width: max-content;
   border-style: solid;
@@ -111,6 +114,7 @@ button {
   border-radius: 10px;
   text-align: center;
   padding: 18px;
+  
 }
 
 #upcoming-games-header {
