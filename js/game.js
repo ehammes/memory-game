@@ -142,7 +142,7 @@ function flipCard(e) {
       attemptsMade++;
       matchesMade++;
       previousCard = null;
-      if(matchesMade === 1) {
+      if(matchesMade === MATCHESREQUIRED) {
         endGame();
       }
     } else {
@@ -192,21 +192,38 @@ function resetGame() {
 function endGame() {
   clearInterval(timerID);
   gameContainer.removeEventListener('click', flipCard);
-  new HighScore();
+  let currScore = new HighScore();
+  insertHighScore(currScore);
   let stringifiedHiScoresArray = JSON.stringify(parsedHiScoresArray);
   localStorage.setItem('hiScoresArray', stringifiedHiScoresArray);
-  if (matchesMade === 1) {
+  if (matchesMade === MATCHESREQUIRED) {
     setTimeout(function() {alert('Congrats, you completed all the matches!');}, 5);
   } else {
     alert('You failed!');
   }
 }
 
+function insertHighScore(currScore) {
+  let insertionPointIndex = placeHighScore(currScore);
+  parsedHiScoresArray.splice(insertionPointIndex, 0, currScore);
+}
+
+function placeHighScore(currScore) {
+  for(let i = 0; i < parsedHiScoresArray.length; i++) {
+    if(currScore.matchesMade > parsedHiScoresArray[i].matchesMade) {
+      return i;
+    } else if (currScore.timeRemaining > parsedHiScoresArray[i].timeRemaining) {
+      return i;
+    }
+  }
+  return parsedHiScoresArray.length;
+}
+
 function HighScore() {
   this.userName = userName;
   this.matchesMade = matchesMade;
+  this.attemptsMade = attemptsMade;
   this.timeRemaining = timeRemaining;
-  parsedHiScoresArray.push(this);
 }
 
 function getHighScores() {
