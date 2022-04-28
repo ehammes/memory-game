@@ -29,6 +29,7 @@ h1 {
 .container img {
   width: 100%;
   height: auto;
+  border: 2px solid black;
 }
 
 .container .btn {
@@ -51,8 +52,6 @@ h1 {
   background-color: black;
 }
 
-
-
 #sponsorname {
   DISPLAY: FLEX;
   JUSTIFY-CONTENT: SPACE-AROUND;
@@ -64,22 +63,31 @@ h1 {
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
+  width: max-content;
+  margin: 20px auto 30px auto;
+  border: groove 5px lightgray;
+  padding: 10px 70px 30px 50px;
 }
 
 #user-data {
   width: max-content;
   border-style: solid;
-  border-width: thick;
+  border-width: 3px;
   margin: auto;
   text-align: center;
   margin-top: 2%;
+  margin-bottom: 2%;
+  padding: 1.5%;
 }
 
 h3 {
   display: flex;
   justify-content: center;
   margin-top: 2%;
-
+  margin-bottom: 10px;
+  font-size: larger;
+  font-weight: bold;
+  padding: 5px;
 }
 
 #upcoming-games {
@@ -89,4 +97,6 @@ h3 {
   justify-content: space-around;
 }
 
-/* #play-now {} */
+#upcoming-games img {
+  border: 2px solid black;
+}
