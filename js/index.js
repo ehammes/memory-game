@@ -26,6 +26,7 @@ function userNameSubmission(event) {
 
   displayedUserName = event.target.username.value;
   userNameDiv.textContent = displayedUserName;
+  document.getElementById('user-data').reset();
 
   // let stringifiedUserName = JSON.stringify(userName);
   localStorage.setItem('userName', displayedUserName);

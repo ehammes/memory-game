@@ -9,11 +9,14 @@
 }
 
 #Matchstravaganza {
+  background-color: #f3e2b3;
+  color: #27b46e;
   width: max-content;
   font-size: 48pt;
   margin: 20px auto 30px auto;
-  border: groove 5px lightgray;
+  border: groove 5px black;
   padding: 10px 100px;
+  border-radius: 10px;
 }
 
 h1 {
@@ -25,20 +28,22 @@ h1 {
   width: max-content;
   margin: 5px auto;
   font-size: 24pt;
-  border: groove 5px gray;
-  border-radius: 5px;
+  border: groove 5px black;
+  border-radius: 10px;
   padding: 5px;
+  background-color: #edc02c;
 }
 
 #game {
-  width: 1000px;
+  width: 960px;
   border: 3px solid black;
+  border-radius: 10px;
   margin: 10px auto;
   padding: 10px 0;
 }
 
 .card-container {
-  background-color: lightblue;
+  background-color: #27b46e;
   width: 170px;
   height: 170px;
   border: 5px groove black;
@@ -63,7 +68,7 @@ h1 {
 
 #start-game, #reset-game {
   display: flex;
-  background-color: aqua;
+  background-color: #edc02c;
   width: 100px;
   height: 50px;
   align-items: center;
@@ -85,17 +90,19 @@ h1 {
 }
 
 #instructions {
-  width: fit-content;
-  margin: 20px auto 50px auto;
-  border: groove 5px lightgray;
+  width: 674px;
+  margin: 20px auto 40px;
+  border: groove 5px black;
   padding: 10px 20px 20px;
+  background-color: #F03613;
+  color: #f3e2b3;
+  border-radius: 10px;
 }
 
 #instructions h3 {
   font-size: 18pt;
   font-weight: bold;
   margin: 0 auto 10px auto;
-  /* border: 2px solid black; */
   width: max-content;
   padding: 5px; 
 }
