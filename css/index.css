@@ -82,6 +82,25 @@ h1 {
   padding: 4px 0;
 }
 
+#form-container {
+  display:flex;
+  flex-wrap: wrap;
+}
+
+legend {
+  margin-bottom: 15px;
+}
+
+button {
+  margin-top: 15px;
+}
+
+#username-label {
+  display:flex;
+  align-items: center;
+  margin-right: 5px;
+}
+
 #user-data {
   background-color: #f3e2b3;
   width: max-content;
@@ -103,6 +122,7 @@ h1 {
   width: 960px;
   justify-content: center;
 }
+
 
 #upcoming-games {
   display: flex;
