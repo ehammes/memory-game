@@ -1,21 +1,34 @@
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+#gameofweek {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  padding: .5% 0% .5% 0%;
+  margin: .5% 0% .5% 0%;
+}
+
 #gameofweek:hover {
   background-color: aquamarine;
-  DISPLAY: FLEX;
-      JUSTIFY-CONTENT: SPACE-AROUND;
-      ALIGN-CONTENT: baseline;
+  display: flex;
+  justify-content: space-around;
+  align-content: baseline;
 }
 
 .container {
   position: relative;
   width: 100%;
   max-width: 400px;
- margin: auto;
+  margin: auto;
 }
 
 .container img {
   width: 100%;
   height: auto;
-  
+
 }
 
 .container .btn {
@@ -72,17 +85,10 @@ h3 {
 }
 
 #upcoming-games {
-  margin-top: 1%;
+  margin: 1% 0% 2% 0%;
   display: flex;
   justify-content: center;
-
-
 }
 
-a {
-  margin-top: 1%;
-  margin-right: 2%;
-  margin-left: 1%;
-}
 
-#play-now {}
+/* #play-now {} */
