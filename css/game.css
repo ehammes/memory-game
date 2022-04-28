@@ -1,11 +1,10 @@
 
 #nav-row-2 {
-  display: block;
-  align-content: center;
-  text-align: center;
+  display: flex;
+  justify-content: center;
   padding: 1% 0% 1% 0%;
-  margin: 2.5% 0% 1% 0%;
-  font-size: 24px;
+  margin: 1% 0% 1% 0%;
+  font-size: 22px;
   font-weight: bold;
 }
 

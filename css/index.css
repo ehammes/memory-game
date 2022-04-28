@@ -8,7 +8,8 @@ h1 {
   font-size: 22px;
   font-weight: bold;
   padding: .5% 0% .5% 0%;
-  margin: .5% 0% .5% 0%;
+  margin: .5% auto .5%;
+  width: 960px;
 }
 
 #gameofweek:hover {
@@ -21,19 +22,18 @@ h1 {
 .container {
   position: relative;
   width: 100%;
-  max-width: 400px;
+  max-width: 720px;
   margin: auto;
 }
 
 .container img {
   width: 100%;
   height: auto;
-
 }
 
 .container .btn {
   position: absolute;
-  top: 80%;
+  top: 84%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -67,14 +67,12 @@ h1 {
 }
 
 #user-data {
-
   width: max-content;
   border-style: solid;
   border-width: thick;
   margin: auto;
   text-align: center;
   margin-top: 2%;
-
 }
 
 h3 {
@@ -85,10 +83,10 @@ h3 {
 }
 
 #upcoming-games {
-  margin: 1% 0% 2% 0%;
   display: flex;
-  justify-content: center;
+  margin: 2% auto;
+  width: 960px;
+  justify-content: space-around;
 }
-
 
 /* #play-now {} */

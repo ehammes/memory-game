@@ -11,7 +11,7 @@ let attemptsMade = 0;
 let matchesMade = 0;
 let previousCard = null;
 let previousCardContainer = null;
-let userName = 'default_user';
+let userName = 'New User';
 let fetchHighScoresArray = getHighScores();
 let parsedHiScoresArray = JSON.parse(fetchHighScoresArray);
 let timerID;
