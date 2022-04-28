@@ -41,6 +41,10 @@ function createHeaderRow() {
   const timeHeading = document.createElement('td');
   tr.appendChild(timeHeading);
   timeHeading.textContent = 'Time Remaining';
+
+  const accuracyHeading = document.createElement('td');
+  tr.appendChild(accuracyHeading);
+  accuracyHeading.textContent = 'Accuracy';
 }
 
 function createHighScoreRows(i) {
@@ -59,6 +63,9 @@ function createHighScoreRows(i) {
   highScoreRow.appendChild(rowTimeRemaining);
   rowTimeRemaining.textContent = parsedHiScoresArray[i].timeRemaining;
 
+  const rowAccuracy = document.createElement('td');
+  highScoreRow.appendChild(rowAccuracy);
+  rowAccuracy.textContent = `${(parsedHiScoresArray[i].matchesMade / parsedHiScoresArray[i].attemptsMade * 100).toFixed(0)}%`;
 }
 
 createHeaderRow();

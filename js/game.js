@@ -4,17 +4,17 @@
 
 const MATCHESREQUIRED = 8;
 const STARTING_TIME = 60;
-const cardArray = [];
 const imgNameArray = fillImgNameArray();
+let cardArray = [];
 let timeRemaining = STARTING_TIME;
 let attemptsMade = 0;
 let matchesMade = 0;
-let timerID;
 let previousCard = null;
 let previousCardContainer = null;
 let userName = 'default_user';
 let fetchHighScoresArray = getHighScores();
 let parsedHiScoresArray = JSON.parse(fetchHighScoresArray);
+let timerID;
 
 
 // card1 always in postiion 1, etc
@@ -139,12 +139,13 @@ function flipCard(e) {
       previousCard = clickedCard;
       previousCardContainer = divID;
     } else if (clickedCard === previousCard) {
-      //make match
       attemptsMade++;
       matchesMade++;
       previousCard = null;
+      if(matchesMade === MATCHESREQUIRED) {
+        endGame();
+      }
     } else {
-      //flip cards back over
       attemptsMade++;
       gameContainer.removeEventListener('click', flipCard);
       setTimeout(function () { noMatch(e.target); }, 1000);
@@ -176,26 +177,53 @@ function resetGame() {
   gameContainer.removeEventListener('click', flipCard);
   timeRemaining = STARTING_TIME;
   timer.textContent = `Time Remaining: ${timeRemaining}`;
-  // reset Cards
+  for(let i = 0; i < cardArray.length; i++) {
+    cardArray[i].containerDomAddress.innerHTML = '';
+  }
+  cardArray = [];
+  fillCards();
+  fillCardDivs();
+  attemptsMade = 0;
+  matchesMade = 0;
+  previousCard = null;
+  previousCardContainer = null;
 }
 
 function endGame() {
   clearInterval(timerID);
-  new HighScore();
+  gameContainer.removeEventListener('click', flipCard);
+  let currScore = new HighScore();
+  insertHighScore(currScore);
   let stringifiedHiScoresArray = JSON.stringify(parsedHiScoresArray);
   localStorage.setItem('hiScoresArray', stringifiedHiScoresArray);
   if (matchesMade === MATCHESREQUIRED) {
-    alert('Congrats, you completed all the matches!');
+    setTimeout(function() {alert('Congrats, you completed all the matches!');}, 5);
   } else {
     alert('You failed!');
   }
 }
 
+function insertHighScore(currScore) {
+  let insertionPointIndex = placeHighScore(currScore);
+  parsedHiScoresArray.splice(insertionPointIndex, 0, currScore);
+}
+
+function placeHighScore(currScore) {
+  for(let i = 0; i < parsedHiScoresArray.length; i++) {
+    if(currScore.matchesMade > parsedHiScoresArray[i].matchesMade) {
+      return i;
+    } else if (currScore.timeRemaining > parsedHiScoresArray[i].timeRemaining) {
+      return i;
+    }
+  }
+  return parsedHiScoresArray.length;
+}
+
 function HighScore() {
   this.userName = userName;
   this.matchesMade = matchesMade;
+  this.attemptsMade = attemptsMade;
   this.timeRemaining = timeRemaining;
-  parsedHiScoresArray.push(this);
 }
 
 function getHighScores() {
