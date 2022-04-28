@@ -5,10 +5,11 @@
 }
 
 #nav-row-1 {
-  margin-top: 8px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-end;
+  width: 960px;
+  margin: 8px auto 0;
 }
 
 #nav-row-1 > div {
