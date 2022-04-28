@@ -1,0 +1,63 @@
+html {
+  background-color: #A2EEEB;
+}
+
+*, header {
+  font-family: 'Playfair Display', serif;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+#nav-row-1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 960px;
+  margin: 8px auto 0;
+}
+
+#nav-row-1 > div {
+  width: 240px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#username-sponsor {
+  display: flex;
+  justify-content: end;
+  align-items: flex-end;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#username {
+  margin-right: 8px;
+}
+
+#code-fellows-img {
+  height: 60px;
+}
+
+#nav-row-2 {
+  display: flex;
+  justify-content: center;
+  padding: 1% 0% 1% 0%;
+  margin: 1% 0% 1% 0%;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.nav {
+  display: block;
+  width: max-content;
+  padding: .8% 3% .8% 3%;
+  margin: 0% 1% 0% 1%;
+  background-color: #F03613;
+  color: #f3e2b3;
+  border: 2.5px solid black;
+  border-radius: 5px;
+}
+
+.nav:hover {
+  background-color: #EDC02C;
+}

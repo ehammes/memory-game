@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Titillium+Web:wght@400;600&display=swap');
+  </style>
+  <title>Code Gamez</title>
+</head>
+
+<body>
+  <header>
+    <section id="nav-row-1">
+      <div><a href="index.html"><img src="img/logo.jpg"></a></div>
+      <div><h1 id="title">Code Gamez</h1></div>
+      <div id="username-sponsor">
+        <div id="username">Default_User</div>
+        <div><img id="code-fellows-img" src="img/code-fellows-logo.jpeg"></div>
+      </div>
+    </section>
+    <hr>
+
+    <nav id="nav-row-2">
+      <a class="nav" href="index.html">Home</a>
+      <a class="nav" href="game.html">Game of The Week</a>
+      <a class="nav" href="hi-scores.html">High Scores</a>
+    </nav>
+
+  </header>
+  <main>
+    <h2 id="gameofweek">Our new game this week - MATCHSTRAVAGANZA<h2>
+        <section class="container">
+          <a id="hero"><img src="img/hero-image-2.png"></a>
+          <a href="game.html"><div class="btn">Play Game</div></a>
+        </section>
+        <section id="instructions">
+          <h3>How the game works!</h3>
+          <ol>
+            <li>Press "Start" to begin the game and start the timer.</li>
+            <li>Pick a card to reveal what is behind it.</li>
+            <li>Pick a second card in the same manner.</li>
+            <li>If they are the same image you made a successful match.</li>
+            <li>If not they will turn back over and you must exercise your memory to find all the matches.</li>
+            <li>Do this before the timer runs out to win the game!</li>
+          </ol>
+        </section>
+        <form id="user-data">
+          <fieldset id="form-container">
+            <legend>Player Info</legend>
+            <label id="username-label" for="username">Username:</label><br>
+            <input type="text" id="username-input" name="username"><br>
+          </fieldset>
+            <button>Submit</button>
+        </form>
+        <h3 id="upcoming-games-header">Sneak Peak at our upcoming games!</h3>
+        <section id="upcoming-games">
+
+          <img src="img/photo-mc.jpeg" width="300" height="300">
+          <img src="img/photo-cards.jpeg">
+          <img src="img/photo-mario.jpeg">
+
+        </section>
+  </main>
+  <hr>
+  <footer>
+
+  </footer>
+  <script src="js/index.js"> </script>
+</body>
+
+</html>
