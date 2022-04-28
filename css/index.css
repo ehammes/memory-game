@@ -5,7 +5,7 @@ h1 {
 
 #gameofweek {
   text-align: center;
-  font-size: 22px;
+  font-size: 20pt;
   font-weight: bold;
   padding: .5% 0% .5% 0%;
   margin: .5% auto .5%;
@@ -21,15 +21,15 @@ h1 {
 
 .container {
   position: relative;
-  width: 100%;
-  max-width: 720px;
+  width: 724px;
   margin: auto;
 }
 
 .container img {
-  width: 100%;
+  width: calc(100% - 4px);
   height: auto;
   border: 2px solid black;
+  border-radius: 10px;
 }
 
 .container .btn {
@@ -59,10 +59,11 @@ h1 {
 }
 
 #instructions {
-  width: fit-content;
-  margin: 20px auto 50px auto;
+  width: 674px;
+  margin: 20px auto 40px;
   border: groove 5px lightgray;
   padding: 10px 20px 20px;
+  border-radius: 10px;
 }
 
 #instructions h3 {
@@ -82,28 +83,27 @@ h1 {
   width: max-content;
   border-style: solid;
   border-width: 3px;
-  margin: auto;
+  border-radius: 10px;
+  margin: 20px auto;
   text-align: center;
-  margin-top: 2%;
-  margin-bottom: 2%;
-  padding: 1.5%;
+  padding: 18px;
 }
 
-#upcoming-games h3 {
-  display: flex;
-  justify-content: center;
-  margin-top: 2%;
-  margin-bottom: 10px;
-  font-size: larger;
+#upcoming-games-header {
+  display: block;
+  text-align: center;
+  font-size: 16pt;
   font-weight: bold;
-  padding: 5px;
+  margin: 30px auto 20px;
+  width: 960px;
+  justify-content: center;
 }
 
 #upcoming-games {
   display: flex;
-  margin: 2% auto;
   width: 960px;
-  justify-content: space-around;
+  margin: 0 auto 16px;
+  justify-content: space-between;
 }
 
 #upcoming-games img {
