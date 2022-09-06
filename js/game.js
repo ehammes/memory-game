@@ -137,7 +137,7 @@ function flipCard(e) {
       gameContainer.removeEventListener('click', flipCard);
       setTimeout(function () { noMatch(e.target); }, 1000);
     }
-    console.log(matchesMade + ' out of ' + attemptsMade);
+    // console.log(matchesMade + ' out of ' + attemptsMade); // Console log highlighting the number of matches made out of the total number of match attempts
   }
 }
 
