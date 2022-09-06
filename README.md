@@ -1,4 +1,4 @@
-# memory-game
+# Picture Memory Game
 
 ## Authors
 
@@ -7,13 +7,12 @@
 * Cheri Hodge
 * Ben Small
 
-## Picture Memory Game
+### Memory Game Summary
 
-A simple matching game where players click on 'cards' trying to match the images of pets on the back side of the cards.
+* A simple matching game where players click on 'cards' trying to match the images of pets on the back side of the cards.
+* To play the game, visit [Matchstravaganza](https://ehammes.github.io/memory-game)
 
-To play the game, visit [Matchstravaganza](https://matchstravaganza.github.io/memory-game/)
-
-### What problem or pain point does it solve?
+#### What problem or pain point does it solve?
 
 This game will provide memory improvement in the form of an entertaining game.
 
