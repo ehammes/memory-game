@@ -7,7 +7,7 @@ let displayedUserName = 'New User';
 if (localStorage.getItem('userName') !== null) {
   displayedUserName = (localStorage.getItem('userName'));
 } else {
-  console.log('username does not exist');
+  // console.log('username does not exist');
 }
 
 // ********************** DOM References **************************************
@@ -28,7 +28,6 @@ function userNameSubmission(event) {
   userNameDiv.textContent = displayedUserName;
   document.getElementById('user-data').reset();
 
-  // let stringifiedUserName = JSON.stringify(userName);
   localStorage.setItem('userName', displayedUserName);
 }
 
