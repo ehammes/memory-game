@@ -2,20 +2,18 @@
 
 ## Authors
 
+* Elizabeth Hammes
 * Brady Davenport
 * Cheri Hodge
 * Ben Small
-* Elizabeth Hammes
 
-## Memory game description
+## Picture Memory Game
 
-### Summary of project
+A simple matching game where players click on 'cards' trying to match the images of pets on the back side of the cards.
 
-#### A memory matching game using cards
+To play the game, visit [Matchstravaganza](https://matchstravaganza.github.io/memory-game/)
 
-A simple matching game where players click on 'cards' trying to match the images on back side of them.
-
-#### What problem or pain point does it solve?
+### What problem or pain point does it solve?
 
 This game will provide memory improvement in the form of an entertaining game.
 
@@ -34,7 +32,7 @@ This game will provide memory improvement in the form of an entertaining game.
 * A high scores page that displayed persisted score data
 * CSS
   * Game centered in page
-  * margins between cards
+  * Margins between cards
   * Same color scheme on all pages - appealing contrast
   * Same header/footer layout on all pages
 

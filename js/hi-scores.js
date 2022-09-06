@@ -72,7 +72,7 @@ createHeaderRow();
 
 for (let i = 0; i < parsedHiScoresArray.length; i++) {
   createHighScoreRows(i);
-} // placeholder for constructor function, putting scores in from games played
+}
 
 
 
