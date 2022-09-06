@@ -16,14 +16,8 @@ let fetchHighScoresArray = getHighScores();
 let parsedHiScoresArray = JSON.parse(fetchHighScoresArray);
 let timerID;
 
-
-// card1 always in postiion 1, etc
-
 // ********************** DOM References **************************************
 
-// id = game
-// create divs for game cards
-// append cards to section
 const gameContainer = document.getElementById('game');
 const startButton = document.getElementById('start-game');
 const resetButton = document.getElementById('reset-game');
@@ -39,10 +33,6 @@ function Card(randomImageName) {
   cardArray.push(this);
 }
 
-// construct highscore object
-// save it to local storage - correct index according to score rank
-
-
 // ********************** Helpers, Executables ********************************
 
 // check local storage for username
@@ -51,11 +41,8 @@ if (localStorage.getItem('userName')) {
   let userNameDiv = document.getElementById('username');
   userNameDiv.textContent = userName;
 }
-timer.textContent = `Time Remaining: ${timeRemaining}`;
-
 // countdown timer
-
-
+timer.textContent = `Time Remaining: ${timeRemaining}`;
 
 fillCards();
 placeCardDivs();
@@ -239,11 +226,7 @@ function getHighScores() {
 startButton.addEventListener('click', startGame);
 resetButton.addEventListener('click', resetGame);
 
-
 // when timer runs out - end game
 // when all matches made - end game
-// start button
-// reset button
 
 // **********************
-
